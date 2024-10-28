@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>title</title>
+  <link href="assets/style/style.css" rel="stylesheet">
+  <script>
+
+    function wyslij(event) {
+      event.preventDefault();
+      const klient = {
+        nazwa: document.getElementById("nazwafirmy").value,
+        nip: document.getElementById("NIP").value,
+        miasto: document.getElementById("miasto").value,
+        ulica: document.getElementById("ulica").value,
+        numerDomu: document.getElementById("numerDomu").value,
+        numerMieszkania: document.getElementById("numerMieszkania").value,
+        kod: document.getElementById("kodPocztowy").value,
+        uwagi: document.getElementById("uwagi").value,
+        branza: document.getElementById("branza").value,
+        aktywny: document.getElementById("aktywny").checked
+
+      };
+      customerList.push(klient);
+      console.log(klient);
+
+      showList();
+
+
+    }
+
+    function dodaj(event) {
+      event.preventDefault();
+      document.getElementById("nazwafirmy").value = "moja firma";
+      document.getElementById("NIP").value = "82123949";
+      document.getElementById("miasto").value = "Myślenice";
+      document.getElementById("ulica").value = "Słowackiego";
+      document.getElementById("numerDomu").value = "341";
+      document.getElementById("numerMieszkania").value = "2";
+      document.getElementById("kodPocztowy").value = "32-400";
+      document.getElementById("uwagi").value = "Mam dużo uwag";
+      document.getElementById("branza").value = "IT";
+      document.getElementById("aktywny").checked = true;
+
+
+    }
+    function showList() {
+      document.getElementById('customer-form').style.display = "none"
+      document.getElementById('customer-list').style.display = "block";
+
+      let ul = document.getElementById('customer-list-data');
+      for (var i = 0; i <= customerList.length; i++) {
+        ul.innerHTML += `<li>${customerList[i].nazwa}</li>`;
+      }
+
+    }
+
+    var customerList = [];
+    function showForm() {
+      document.getElementById("customer-list-data").innerHTML = "";
+      document.getElementById('customer-list').style.display = "none";
+      document.getElementById('customer-form').style.display = "block";
+    }
+  </script>
+</head>
+
+<body>
+  <div id="customer-list">
+    <h1 id="login-form">Lista</h1>
+    <ul id="customer-list-data"></ul>
+    <div class="col-12"><br>
+      <button class="btn btn-primary" type="button" onclick="showForm()">Show form</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <br>
+
+    <form onsubmit="wyslij(event)" style="display: none;" id="customer-form">
+      <h1>Dodaj klienta do bazy</h1>
+      Wprowadz klienta:
+      <div class="mb-2">
+        <div class="col-sm-10">
+          <label for="nazwafirmy" class="form-label">Nazwa firmy</label>
+          <input type="text" class="col-sm-2 form-label form-control" id="nazwafirmy" required>
+        </div>
+        <div class="col-sm-10">
+          <label for="NIP" class="form-label">NIP</label>
+          <input type="number" class="col-sm-2 form-label form-control" id="NIP" required>
+        </div>
+        <div class="col-sm-10">
+          <label for="miasto" class="form-label">Miasto</label>
+          <input type="text" class="col-sm-2 form-label form-control" id="miasto" required>
+        </div>
+        <div class="col-sm-10">
+          <label for="ulica" class="form-label">Ulica</label>
+          <input type="text" class="col-sm-2 form-label form-control" id="ulica" required>
+        </div>
+        <div class="col-sm-10">
+          <label for="numerdomu" class="form-label">Numer domu</label>
+          <input type="number" class="col-sm-2 form-label form-control" id="numerDomu" required>
+        </div>
+        <div class="col-sm-10">
+          <label for="numermieszkania" class="form-label">Numer mieszkania</label>
+          <input type="number" class="col-sm-2 form-label form-control" id="numerMieszkania">
+        </div>
+        <div class="col-sm-10">
+          <label for="kodPocztowy" class="form-label">Kod pocztowy</label>
+          <input type="test" class="col-sm-2 form-label form-control" id="kodPocztowy" required>
+        </div>
+        <div class="col-sm-10">
+          <label for="uwagi" class="form-label">Uwagi</label>
+          <textarea type="textarea" class="col-sm-2 form-label form-control" id="uwagi"></textarea>
+        </div>
+        <div class="col-sm-10">
+          <select class="form-select" aria-label="Default select example" id="branza" required>
+            <option selected>Branża</option>
+            <option value="IT">IT</option>
+            <option value="Nie IT">Nie IT</option>
+            <option value="Też nie IT">Też nie IT</option>
+          </select>
+        </div>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="aktywny" required>
+            <label class="form-check-label" for="flexCheckDefault">
+              Aktywny
+            </label>
+          </div>
+        </div>
+        <div class="col-12"><br>
+          <button class="btn btn-primary" type="submit">Dodaj</button>
+        </div>
+        <div class="col-12"><br>
+          <button class="btn btn-primary" type="button" onclick="dodaj(event)">Wstaw dane</button>
+        </div>
+        <div class="col-12"><br>
+          <button class="btn btn-primary" type="button" onclick="showList()">Hide form</button>
+        </div>
+
+
+      </div>
+
+  </div>
+  </form>
+
+</body>
+
+</html>

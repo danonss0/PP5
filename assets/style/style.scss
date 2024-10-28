@@ -1,0 +1,24 @@
+$body-bg: #000;
+$body-color: #ffffff;
+$primary-color: #000;
+
+BODY{
+    background-color: $primary-color;
+}
+
+
+body {
+    .d-flex {
+        form {
+            .last-element label{
+                background-color: #000;
+            }
+            .first-element label{
+                background-color: grey;
+            }
+        }
+    }
+}
+
+@import '../../node_modules/bootstrap/scss/bootstrap'
+
