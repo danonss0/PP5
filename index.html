@@ -31,34 +31,55 @@
     }
 
     function dodaj(event) {
+      
       event.preventDefault();
-      document.getElementById("nazwafirmy").value = "moja firma";
-      document.getElementById("NIP").value = "82123949";
-      document.getElementById("miasto").value = "Myślenice";
-      document.getElementById("ulica").value = "Słowackiego";
-      document.getElementById("numerDomu").value = "341";
-      document.getElementById("numerMieszkania").value = "2";
-      document.getElementById("kodPocztowy").value = "32-400";
-      document.getElementById("uwagi").value = "Mam dużo uwag";
-      document.getElementById("branza").value = "IT";
-      document.getElementById("aktywny").checked = true;
+
+      const klient = {
+        nazwa: "moja firma",
+        nip: "82123949",
+        miasto: "Myślenice",
+        ulica: "Słowackiego",
+        numerDomu: "341",
+        numerMieszkania: "2",
+        kod: "32-400",
+        uwagi: "Mam dużo uwag",
+        branza: "IT",
+        aktywny: true,
+
+      };
+
+      document.getElementById("nazwafirmy").value = klient.nazwa;
+      document.getElementById("NIP").value = klient.nip;
+      document.getElementById("miasto").value = klient.miasto;
+      document.getElementById("ulica").value = klient.ulica;
+      document.getElementById("numerDomu").value = klient.numerDomu;
+      document.getElementById("numerMieszkania").value = klient.numerMieszkania;
+      document.getElementById("kodPocztowy").value = klient.kod;
+      document.getElementById("uwagi").value = klient.uwagi;
+      document.getElementById("branza").value = klient.branza;
+      document.getElementById("aktywny").checked = klient.aktywny;
 
 
     }
     function showList() {
       document.getElementById('customer-form').style.display = "none"
       document.getElementById('customer-list').style.display = "block";
-
+      document.getElementById("customer-list-data").innerHTML = "";
       let ul = document.getElementById('customer-list-data');
       for (var i = 0; i <= customerList.length; i++) {
-        ul.innerHTML += `<li>${customerList[i].nazwa}</li>`;
+        ul.innerHTML += `<li>${customerList[i].nazwa}<button class="btn btn-primary" type="button" onclick="showCustomer(klient)">Edytuj</button></li>`;
       }
 
     }
 
     var customerList = [];
+    function showCustomer(customerId){
+      showForm();
+      let customer = customerList.find()
+      dodaj(customer);
+    }
     function showForm() {
-      document.getElementById("customer-list-data").innerHTML = "";
+      
       document.getElementById('customer-list').style.display = "none";
       document.getElementById('customer-form').style.display = "block";
     }
