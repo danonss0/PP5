@@ -5,64 +5,9 @@
   <meta charset="UTF-8" />
   <title>title</title>
   <link href="assets/style/style.css" rel="stylesheet">
-  <script>
+  <script src="assets/js/customer.js"></script>
+  <script src="assets/js/main.js"></script>
 
-    function wyslij(event) {
-      event.preventDefault();
-      const klient = {
-        nazwa: document.getElementById("nazwafirmy").value,
-        nip: document.getElementById("NIP").value,
-        miasto: document.getElementById("miasto").value,
-        ulica: document.getElementById("ulica").value,
-        numerDomu: document.getElementById("numerDomu").value,
-        numerMieszkania: document.getElementById("numerMieszkania").value,
-        kod: document.getElementById("kodPocztowy").value,
-        uwagi: document.getElementById("uwagi").value,
-        branza: document.getElementById("branza").value,
-        aktywny: document.getElementById("aktywny").checked
-
-      };
-      customerList.push(klient);
-      console.log(klient);
-
-      showList();
-
-
-    }
-
-    function dodaj(event) {
-      event.preventDefault();
-      document.getElementById("nazwafirmy").value = "moja firma";
-      document.getElementById("NIP").value = "82123949";
-      document.getElementById("miasto").value = "Myślenice";
-      document.getElementById("ulica").value = "Słowackiego";
-      document.getElementById("numerDomu").value = "341";
-      document.getElementById("numerMieszkania").value = "2";
-      document.getElementById("kodPocztowy").value = "32-400";
-      document.getElementById("uwagi").value = "Mam dużo uwag";
-      document.getElementById("branza").value = "IT";
-      document.getElementById("aktywny").checked = true;
-
-
-    }
-    function showList() {
-      document.getElementById('customer-form').style.display = "none"
-      document.getElementById('customer-list').style.display = "block";
-
-      let ul = document.getElementById('customer-list-data');
-      for (var i = 0; i <= customerList.length; i++) {
-        ul.innerHTML += `<li>${customerList[i].nazwa}</li>`;
-      }
-
-    }
-
-    var customerList = [];
-    function showForm() {
-      document.getElementById("customer-list-data").innerHTML = "";
-      document.getElementById('customer-list').style.display = "none";
-      document.getElementById('customer-form').style.display = "block";
-    }
-  </script>
 </head>
 
 <body>
