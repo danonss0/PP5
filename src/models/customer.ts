@@ -19,11 +19,13 @@ class Customer{
 
 }
 class Supplier extends Customer{
-  constructor(accountNumber){
-    super();
-    this.accountNumber = accountNumber;
+  accountNumber:number
+  constructor(accountNumber:number){
+    super()
+    this.accountNumber=accountNumber
+    
+
   }
-  accountNumber = accountNumber;
-  invoice = [];
-  
+  invoices=[]
+
 }

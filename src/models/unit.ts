@@ -1,4 +1,5 @@
-enum Unit{
-    zl = "złoty",
-    usd = "dolar"
+enum Unit {
+    service = 'service',
+    good = 'good',
+    hour = 'hour'
 }

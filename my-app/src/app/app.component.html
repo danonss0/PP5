@@ -1,0 +1,86 @@
+
+<body>
+  <div id="customer-list">
+    <h1 id="login-form">Lista</h1>
+    <ul id="customer-list-data"></ul>
+    <div class="col-12"><br>
+      <button class="btn btn-primary" type="button" onclick="showForm()">Show form</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <br>
+
+    <form onsubmit="wyslij(event)" style="display: none;" id="customer-form">
+      <h1>Dodaj klienta do bazy</h1>
+      Wprowadz klienta:
+      <div class="mb-2">
+        <div class="col-sm-10">
+          <label for="nazwafirmy" class="form-label">Nazwa firmy</label>
+          <input type="text" class="col-sm-2 form-label form-control" id="nazwafirmy" required>
+        </div>
+        <div class="col-sm-10">
+          <label for="NIP" class="form-label">NIP</label>
+          <input type="number" class="col-sm-2 form-label form-control" id="NIP" required>
+        </div>
+        <div class="col-sm-10">
+          <label for="miasto" class="form-label">Miasto</label>
+          <input type="text" class="col-sm-2 form-label form-control" id="miasto" required>
+        </div>
+        <div class="col-sm-10">
+          <label for="ulica" class="form-label">Ulica</label>
+          <input type="text" class="col-sm-2 form-label form-control" id="ulica" required>
+        </div>
+        <div class="col-sm-10">
+          <label for="numerdomu" class="form-label">Numer domu</label>
+          <input type="number" class="col-sm-2 form-label form-control" id="numerDomu" required>
+        </div>
+        <div class="col-sm-10">
+          <label for="numermieszkania" class="form-label">Numer mieszkania</label>
+          <input type="number" class="col-sm-2 form-label form-control" id="numerMieszkania">
+        </div>
+        <div class="col-sm-10">
+          <label for="kodPocztowy" class="form-label">Kod pocztowy</label>
+          <input type="test" class="col-sm-2 form-label form-control" id="kodPocztowy" required>
+        </div>
+        <div class="col-sm-10">
+          <label for="uwagi" class="form-label">Uwagi</label>
+          <textarea type="textarea" class="col-sm-2 form-label form-control" id="uwagi"></textarea>
+        </div>
+        <div class="col-sm-10">
+          <select class="form-select" aria-label="Default select example" id="branza" required>
+            <option selected>Branża</option>
+            <option value="IT">IT</option>
+            <option value="Nie IT">Nie IT</option>
+            <option value="Też nie IT">Też nie IT</option>
+          </select>
+        </div>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="aktywny" required>
+            <label class="form-check-label" for="flexCheckDefault">
+              Aktywny
+            </label>
+          </div>
+        </div>
+        <div class="col-12"><br>
+          <button class="btn btn-primary" type="submit">Dodaj</button>
+        </div>
+        <div class="col-12"><br>
+          <button class="btn btn-primary" type="button" onclick="dodaj(event)">Wstaw dane</button>
+        </div>
+        <div class="col-12"><br>
+          <button class="btn btn-primary" type="button" onclick="showList()">Hide form</button>
+        </div>
+
+
+      </div>
+
+  </div>
+  </form>
+
+</body>
+
+
+
+<router-outlet></router-outlet>
